@@ -1,54 +1,46 @@
 class Kalkulator():
-    def __init__(self, angka_pertama, angka_kedua):
-        self.angka_pertama = angka_pertama
-        self.angka_kedua = angka_kedua
+    def __init__(self, a, b):
+        self.a = a
+        self.b = b
 
-    def pertambahan(self):
-        return self.angka_pertama + self.angka_kedua
+    def tambah(self):
+        return self.a + self.b
 
-    def pengurangan(self):
-        return self.angka_pertama - self.angka_kedua
+    def kurang(self):
+        return self.a - self.b
 
-    def perkalian(self):
-        return self.angka_pertama * self.angka_kedua
+    def kali(self):
+        return self.a * self.b
 
-    def pembagian(self):
-        if self.angka_kedua != 0:
-            return self.angka_pertama / self.angka_kedua
-        else:
-            return "Error: Tidak bisa dibagi nol!"
+    def bagi(self):
+        return self.a / self.b if self.b != 0 else "Error: Tidak bisa dibagi nol!"
 
     def modulo(self):
-        if self.angka_kedua != 0:
-            return self.angka_pertama % self.angka_kedua
-        else:
-            return "Error: Tidak bisa dibagi nol!"
+        return self.a % self.b if self.b != 0 else "Error: Tidak bisa dibagi nol!"
 
 
 def main():
     while True:
-        print(10 * "=", "Kakulator", 10 * "=")
-        angka_pertama = float(input("Masukkan angka pertama: "))
-        operator = input("Masukkan operator (+,-,*,/,%): ")
-        angka_kedua = float(input("Masukkan angka kedua: "))
-        kalkulator = Kalkulator(angka_pertama, angka_kedua)
+        print("=" * 10, "Kalkulator", "=" * 10)
+        a = float(input("Masukkan angka pertama: "))
+        op = input("Masukkan operator (+,-,*,/,%): ")
+        b = float(input("Masukkan angka kedua: "))
+        k = Kalkulator(a, b)
 
-        if operator == "+":
-            print(f"Hasil: {kalkulator.pertambahan()}")
-        elif operator == "-":
-            print(f"Hasil {kalkulator.pengurangan()}")
-        elif operator == "*":
-            print(f"Hasil {kalkulator.perkalian()}")
-
-        elif operator == "/":
-            print(f"Hasil {kalkulator.pembagian()}")
-        elif operator == "%":
-            print(f"Hasil {kalkulator.modulo()}")
+        if op == "+":
+            print(f"Hasil: {k.tambah()}")
+        elif op == "-":
+            print(f"Hasil {k.kurang()}")
+        elif op == "*":
+            print(f"Hasil {k.kali()}")
+        elif op == "/":
+            print(f"Hasil {k.bagi()}")
+        elif op == "%":
+            print(f"Hasil {k.modulo()}")
         else:
             print("Operator tidak dikenal!")
 
-        pilihan = str(input("Apakah ingin lanjut? (y/n): "))
-        if pilihan.lower() != "y":
+        if input("Apakah ingin lanjut? (y/n): ").lower() != "y":
             print("Terima Kasih.")
             break
 
